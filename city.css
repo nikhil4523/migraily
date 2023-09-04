@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #ffffff;
+  }
+
+  .instruction {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: #ffffff;
+    padding: 5px;
+    font-size: 12px;
+    color:#08bd80;
+  }
+
+  .header {
+    height: 25vh;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #08bd80;
+  }
+
+  .services {
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .search-bar {
+position: absolute;
+width: 100px;
+left: 70%;
+transform: translate(-50%, -50%);
+background-color: #ffffff;
+padding: 5px;
+
+
+}
+
+.subheadline{
+
+  align-self: center;
+  padding-left: 40vw;
+  color: #08bd80;
+  border: #003725;
+  text-shadow: 1px 1px #003725;
+  font-size: 2vw;
+}
+ 
+.search-input {
+
+width: 100px;
+
+font-size: 14px;
+border: 1px solid #030303;
+border-radius: 5px;
+align-items: left;
+
+}
+
+ 
+
+  .service .subheadline::after {
+    content: '\f105'; /* Unicode for a right-pointing triangle */
+    font-family: 'Font Awesome'; /* You can use Font Awesome for icons */
+    font-weight: 900;
+    margin-left: 5px;
+    color: #08bd80;
+    text-align: center;
+  }
+
+  .service.open .subheadline::after {
+    content: '\f107'; /* Unicode for a down-pointing triangle */
+  }
+
+  .service .info {
+    display: none;
+    margin-top: 10px;
+    color: #08bd80;
+    text-align: center;
+  }
+
+  .service.open .info {
+    display: block;
+  }
+
+  table {
+    margin-left: 250px;
+    width: 60%;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    overflow-x: scroll;
+    box-shadow: 10px 10px 1px #000000;
+    
+  }
+  th,
+  td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #08bd80;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    padding-left: 90px;
+    background-color: #08bd80;
+    font-size: 20px;
+
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+  }
+
+  nav ul li {
+      align-self: center;
+    margin-right: 110px;
+    align-items: center;
+  }
+
+  nav ul li a {
+      align-self: center;
+    text-decoration: none;
+    color: #000000; 
+  }
+
+  
+  .notification {
+    color: #08bd80;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .city-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .city-list a {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #08bd80;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    color: #000000;
+    font-size: 20px;
+    border: 1px solid #003725;
+  }
+  
+
+  .city-list li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+     height: 2px;
+  }
+
+  .city-list li h3 {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .servicex{
+    color: #003725;
+    text-align: center;
+    border: 1px solid #000000;
+    background-color: #71f5c9;
+  }
+
+
+  h1{
+
+    font-size: 4vw;
+    font-family: 'Special Elite', cursive;
+    color: #08bd80;
+    text-shadow: 1px 1px #003725;
+    
+  }

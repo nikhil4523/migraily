@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>*{
+        margin: 0;
+        padding: 0;
+    
+    }
+    
+    .con{
+        
+        height:100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    
+    
+    perspective: 10px;
+    
+    
+    
+    }
+    
+    
+    
+    .box{
+        position: relative;
+        height: 90%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-style: preserve-3d;
+        z-index: -1;
+    
+    
+    }
+    
+    #a,#b{
+        position: absolute;
+        height: 110%;
+        width: 100vw;
+        object-fit: cover;
+        z-index: -1;
+    
+    }
+    #a{
+        
+        transform: translateZ(-70px) scale(8);
+     
+     overflow-y:hidden ;
+    }
+    #b{
+        transform: translateZ(-30px) scale(2);
+        width: 100%;
+        height: 100%;
+    
+    
+    }
+    
+    #c{
+        position: absolute;
+        padding: 2px;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px rgb(0, 0, 0);
+        background: rgba(255, 0, 0, 0.8);
+        border: 2px solid black;
+        box-shadow:5px 5px rgb(255, 255, 255) ;
+        transform: translateZ(-5px);
+        font-size: 50px;
+    }
+    
+    
+    section{
+        background-color: black;
+        color: rgb(255, 255, 255);
+        font-size: 17px;
+        font-style: italic;
+       
+    }
+    h2{
+        text-align: center;
+        align-items: center;
+        font-size: 50px;
+        background-color: rgb(255, 255, 255);
+        border: 2px solid wheat;
+       
+    }
+    
+    .bg{
+        position: relative;
+        width: 100%;
+        background-attachment: fixed;
+        height: 300px;
+        background-position: center;
+        background-size: cover;
+        justify-content: center;
+    
+    }
+    #a1{
+        
+        
+        color: rgb(255, 0, 0);
+        text-shadow: 2px 2px rgb(255, 255, 255);
+        
+        
+    
+    }
+    
+    #a2{
+       
+        
+        color: rgb(255, 0, 0);
+        text-shadow: 2px 2px rgb(255, 255, 255);
+    }
+    #a3{
+        background-image: url();
+       
+        color: rgb(255, 0, 0);
+        text-shadow: 2px 2px rgb(255, 255, 255);
+    }
+    
+    #a4{
+        background-image: url();
+      
+        color: rgb(255, 0, 0);
+        text-shadow: 2px 2px rgb(255, 255, 255);
+    }
+    #a5{
+        background-color: rgb(0, 0, 0);
+        
+        color: rgb(255, 0, 0);
+        text-shadow: 2px 2px rgb(255, 255, 255);
+    }
+    p{
+        height: auto;
+    }
+    pre{
+    color: rgb(240, 167, 9);
+    text-align: left;
+    padding-left: 20px;
+    }
+    #a6{
+        color: white;
+    }</style>
+</head>
+
+</html>

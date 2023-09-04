@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    
+    , initial-scale=1.0">
+
+
+    <title>Document</title>
+
+    <style>
+
+
+
+  /* Add overlay to indicate blurred content */
+  table tr td:nth-child()::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(226, 217, 217, 0.8);
+    pointer-events: none; /* To prevent interaction with overlay */
+  }
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          height: 100%;
+          background-color: #ffffff;
+        }
+    
+        .instruction {
+          position: fixed;
+          top: 1px;
+          left: 1000px;
+          background-color: #000000;
+          
+          font-size: 12px;
+          color:  #08bd80;
+        }
+    
+        .header {
+          height: 25vh;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Times New Roman', Times, serif;
+          color:  #08bd80;
+        }
+    
+        .services {
+          margin-top: 20px;
+          padding: 20px;
+        }
+    
+        .service {
+          margin-bottom: 20px;
+          border: 1px solid #000000;
+          padding: 10px;
+          position: relative;
+          font-family: 'Times New Roman', Times, serif;
+          background-color: #000000;
+        }
+    
+        .service .subheadline {
+          cursor: pointer;
+          color:  #08bd80;
+          text-align: center;
+          /* We'll use a pseudo-element to create the creative button appearance */
+          position: relative;
+          background-color: #000000;
+          padding: 5px 10px;
+          display: inline-block;
+          width: fit-content; /* Bring the service name to the middle of the row */
+          margin: 0 auto; /* Center the service name horizontally */
+        }
+    
+        
+    
+        .service .subheadline::after {
+          content: '\f105'; /* Unicode for a right-pointing triangle */
+          font-family: 'Font Awesome'; /* You can use Font Awesome for icons */
+          font-weight: 900;
+          margin-left: 5px;
+          color:  #08bd80;
+          text-align: center;
+        }
+    
+       
+    
+        .service .info {
+          display: none;
+          margin-top: 10px;
+          color:  #08bd80;
+          text-align: center;
+        }
+    
+        .service.open .info {
+          display: block;
+        }
+
+        nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      
+      padding-left: 90px;
+      background-color: #08bd80;
+      font-size: min(4vw ,20px);
+
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      align-self: center;
+    }
+
+    nav ul li {
+        align-self: center;
+      margin-right: 3vw;
+      align-items: center;
+    }
+    
+
+    nav ul li a {
+        align-self: center;
+      text-decoration: none;
+      color: #000000; 
+    }
+
+    
+        table {
+          width:95%;
+          border-collapse: collapse;
+          border: 5px solid  #003725;
+        align-self: center;
+          box-shadow: 25px 50px 2px;
+          font-size: 2vw;
+        
+        }
+    
+        th,td {
+          border: 5px solid #003725;
+          padding: 18px;
+          text-align: center;
+          color: rgb(0, 0, 0);
+        
+        }
+    
+        tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+    
+        tr:nth-child(odd) {
+          background-color:  #08bd80;
+        }
+    
+        .sticky {
+          position: sticky;
+          top: 0;
+          background-color: #000000;
+          padding: 13px;
+          color:  #08bd80;
+          font-size: 16px;
+        }
+    
+        
+    
+        .notification {
+          color:  #08bd80;
+          font-weight: bold;
+          font-size: 14px;
+          margin-right: 10px;
+        }
+
+        .city-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .city-list a {
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      background-color: #08bd80;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      color: #000000;
+      font-size: 20px;
+      border: 1px solid #003725;
+    }
+    
+
+    .city-list li::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+       height: 2px;
+    }
+
+    .city-list li h3 {
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .servicex{
+      color: #003725;
+      text-align: center;
+      border: 1px solid #000000;
+      background-color: #71f5c9;
+    }
+    H1{
+      scroll-behavior: smooth;
+    }
+
+    a{
+      height: 40px;
+      color: #034932;
+      background-image: linear-gradient(to left bottom, #ffffff,#05d38e);
+    box-shadow:4px 4px  #003725;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-self: center;
+    }
+
+    #b{
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #034932;
+      text-shadow:1px 1px 1px  #003725;
+    }
+
+    .c{
+      height: 30px;
+      color: #034932;
+      
+    box-shadow:4px 4px  #ffffff;
+    font-family:'Courier New', Courier, monospace;
+    align-self: center;
+    }
+      </style>
+</head>
+<body>
+  <button id="scrollToTopBtn" class="scroll-to-top" style="position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #05d38e;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none">Scroll to Top</button>
+
+    <div class=>
+        <nav>
+          <ul>
+          
+            <li><a  id="c" href="home.php">Home</a></li>
+            <li><a  id="c"  href="about.php">About</a></li>
+          
+            <li><a id="c"   href="hyderbad.html">HYDERABAD</a></li>
+            
+            <div class="instruction">Click on the  'service' to show the table.</div>
+        
+          </ul>
+        </nav>
+      </div>
+      <header class="header">
+        <h1 id="b">Welcome to the services in HYDERBAD</h1> <!-- Changed headline color to blue -->
+      </header>
+
+
+
+
+       
+  <ul class="city-list">
+      <a href="#hotel" alt="HOTEL">HOTEL</a> 
+      
+    
+      <a href="#Accidental Hospital"> Accidental Hospital </a> 
+      
+
+      <a href="#HOME NEED"> HOME NEED</a> 
+      
+      <a href="#HOME FURNITURE">HOME FURNITURE  </a> 
+      
+
+  </ul>
+
+
+  <ul class="city-list">
+    <a href="#HOME APPLINCES">HOME APPLINCES </a> 
+      
+      <a href="#INTERIOR DESINGNER ">INTERIOR DESINGNER  </a> 
+      
+      <a href="#LIGAL AND FINANACE ">LIGAL AND FINANACE  </a> 
+      
+      <a href="#INTERNATE SERVICE PROVIDER "> INTERNATE SERVICE PROVIDER </a> 
+      
+  </ul>
+
+  <ul class="city-list">
+    <a href="#Spa & Saloon"> Spa & Saloon</a> 
+      
+      <a href="#Box Office Nearby"> Box Office Nearby </a> 
+      
+      <a href="#Café">  Café</a> 
+      
+      <a href="#Dental Clinic"> Dental Clinic</a> 
+      
+  </ul>
+
+  <ul class="city-list">
+    <a href="#Electrician Number"> Electrician Number </a> 
+      
+      <a href="#Footwear Shop"> Footwear Shop </a> 
+      
+      <a href="#Furniture Shop Nearby"> Furniture Shop Nearby </a> 
+      
+      <a href="#Fun Park">  Fun Park</a> 
+      
+  </ul>
+
+  <ul class="city-list">
+    <a href="#Gym Nearby ">Gym Nearby  </a> 
+      
+      <a href="#Hill Station">Hill Station </a> 
+      
+      <a href="#Ice Cream Center">  Ice Cream Center</a> 
+      
+      <a href="#Jewelry Shop">  Jewelry Shop</a> 
+      
+  </ul>
+
+  <ul class="city-list">
+
+    <a href="#Mall">Mall </a> 
+    <a href="#Medical Shop Nearby">Medical Shop Nearby </a> 
+    <a href="#Mobile Shop Nearby">Mobile Shop Nearby </a> 
+    <a href="#Normal Clothing Store"> Normal Clothing Store</a> 
+    
+
+
+  </ul>
+
+  <ul class="city-list">
+
+    <a href="#School Nearby">School Nearby </a> 
+    <a href="#DOSA">DOSA </a> 
+    <a href="#Water Park" >  Water Park </a> 
+    <a href="#"> </a> 
+    
+
+
+  </ul>
+
+
+  
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+    
+
+
+
+    <H1 id="hotel" class="servicex" >HOTELS IN HYDERBAD</H1>
+
+    <table>
+        <colgroup><col span="1">
+          <col span="1">
+          <col span="1">
+          <col span="1" style="visibility: collapse;" ></colgroup>
+    
+    
+           <tr>
+            <th>Name</th>
+            <th>Contact-info</th>
+            <th>Address</th>
+            
+          </tr>
+          <tr>
+            <td>Hotel Hyderabad Grand</td>
+            <td>tel:7729992786</td>
+            <td>Opposite Trident Hospital
+  Address
+  11-2/4 & 11-2/5,
+  Madhura Nagar,
+  Shamshabad,
+  Hyderabad - 501218
+  Telangana.
+  
+  Telephone: 8413200187</td>
+            
+          </tr>
+
+          <tr>
+            <td>Kens Business Hotel</td>
+            <td>tel:9849666431</td>
+            <td>Opposite to Tv9 Lane
+  Address
+  Plot No 53,
+  Banjara Hills,
+  Hyderabad - 500034
+  Telangana.</td>
+            
+          </tr>
+
+          <tr>
+            <td>Indus (Ellaa Hotels)</td>
+            <td>tel:040 23002488</td>
+            <td>House No. 2/55, ISB Rd,
+  Ellaa Hotels, Hill Ridge Springs,
+  Gachibowli,
+  Hyderabad - 500032
+  Telangana.
+  040 66288488</td>
+            <td><a href="https://goo.gl/maps/5depCqTHh9b14emdA">MAP</a></td>
+          </tr>
+
+          <tr>
+            <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+          </tr>
+
+
+          
+       
+       
+   </table>
+   <BR>
+    <BR>
+      <BR>
+        <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+
+   <H1 id="BUISNESS HOTEL" class="servicex" >BUISNESS HOTEL in   hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th>
+Anmol Continental Hotel</th>
+          <th>tel:40 23244449</th>
+          <th>Opposite Old Secretariat Road
+Address
+H No. 5-9-20/A,
+Saifabad,
+Hyderabad - 500004
+Telangana.
+40 23242999
+40 23244666</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Landmark Hotel</th>
+          <th>tel:40 23035651</th>
+          <th>Beside BSNL Building
+Address
+SR Chambers,
+Chanda Nagar,
+Hyderabad - 500050
+Telangana.
+40 23035652</th>
+          
+        </tr>
+        
+        <tr>
+          <th>
+Time Square The Landmark Hotel</th>
+          <th>tel:40 42222222</th>
+          <th>Opposite Clock Tower
+Address
+8-1-1, 2/2,
+Secunderabad,
+S D Road,
+Hyderabad - 500003
+Telangana.</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+         <H1 id="HOME NEED" class="servicex" > HOME NEED SERVICE IN hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         <tr>
+          <th>Sree Kitchen World</th>
+          <th>tel:9989389384</th>
+          <th>Opp. More Super Market
+Address
+H. No. 15-31-2L-11/6,
+JNTU Hitech City Road,
+Kukatpally,
+Hyderabad - 500072
+Telangana.
+40 64556577</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Sruthi Frames</th>
+          <th>tel:9949274993</th>
+          <th>Near Sheeshmahal Theater
+Address
+Shop No 6-3-850/2/3/4, AR Plaza,
+Ameerpet,
+Hyderabad - 500016
+Telangana.
+40 2340050</th>
+          
+        </tr>
+        
+        <tr>
+          <th>
+Prestige Home Appliances</th>
+          <th>tel:8022116024</th>
+          <th>Near NMDC
+Address
+NMDC Colony,
+Hanuman Nagar,
+Masab Tank,
+Hyderabad - 500028
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+        </table>
+
+        <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+        <H1 id="Accidental Hospital" class="servicex" >  hyderabad</H1>
+   
+  <table>
+      <colgroup><col span="1">
+        <col span="1">
+        <col span="1">
+        <col span="1" style="visibility: collapse;" ></colgroup>
+  
+  
+         <tr>
+          <th>Name</th>
+          <th>Contact-info</th>
+          <th>Address</th>
+          
+        </tr>
+         
+        <tr>
+          <th>
+Sarada Nursing Home</th>
+          <th>tel:8978521817</th>
+          <th>Near Bus Stop
+Address
+2nd Floor, Tulasi Chambers ,
+Madinaguda,
+Hyderabad - 500049
+Telangana.
+40 23048911</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Amrutha Hospital & Medical</th>
+          <th>tel:8297221155</th>
+          <th>Remedy Hospital Lane
+Address
+M.I.G -410, Ground Floor,
+Sai Divya Residency, Road No. 4,
+Kukatpally,
+Hyderabad - 500072
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Rainbow Children's Hospital</th>
+          <th>tel:40 42462300</th>
+          <th>Beside Hydernagar Bus Stop
+Address
+Plot No. 1, Door No. 1-2-22,
+Hydernagar,
+Kukatpally,
+Hyderabad - 500072
+Telangana.
+40 23892300</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+         <H1 id="HOME FURNITURE" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         <tr>
+          <th>Tulsi Jain Modular Kitchens & SS Railings</th>
+          <th>tel:9963028935</th>
+          <th>D. No. 7-2-49/5/18/2,
+DNM Colony Main Road,
+Balkampet,
+Hyderabad - 500016
+Telangana.
+
+Telephone: 9490035521</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Casa Italia Furniture</th>
+          <th>tel:9347036969</th>
+          <th>Dharamkaram Road Junction,
+Ameerpet,
+Hyderabad - 500016
+Telangana.
+40 66368930
+40 68368931</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Hi Tech Furniture World</th>
+          <th>tel:40 23522171</th>
+          <th>PVNR Expressway Pillar No. 101
+Address
+D No. 13-6-431/C/32/2,
+Ring Road,
+Mehdipatnam,
+Hyderabad - 500028
+Telangana.</th>
+          
+        </tr>
+        
+           
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="HOME APPLINCES" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th>TMC Electronics</th>
+          <th>tel:9866755695</th>
+          <th>Shop No.302, 2nd Floor,
+Koti,
+Hyderabad - 500095
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>
+Shahs Electronics & Appliances</th>
+          <th>tel:9348025021</th>
+          <th>D. No. 4-2-16,17,18,
+RP Road,
+Secunderabad,
+Hyderabad - 500003
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Navkars House Hold Appliances</th>
+          <th>tel:9848217648</th>
+          <th>D. No. 3-3-6/1,
+Rajeswar Chambers, RP Road,
+Secunderabad,
+Hyderabad - 500003
+Telangana.
+
+Telephone: 8500395999
+40 66329814</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+        
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+        
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="INTERIOR DESINGNER " class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+           
+         <tr>
+          <th>Wall Needs Interior Decorators</th>
+          <th>tel:9866047239</th>
+          <th>Near Vegetable Market Road
+Address
+Shop No. 1-8-721/1st 7/A,
+Bashyam Complex,
+Nallakunta,
+Hyderabad - 500044
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>U R Enterprises</th>
+          <th>tel:8686667966</th>
+          <th>Behind Metro Cash N Carry
+Address
+D No. 5-5-33/36, Plot No. 8,
+Vignanpuri Colony,
+Kukatpally,
+Hyderabad - 500072
+Telangana</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Nabh Design & Associates</th>
+          <th>tel:077996 61177</th>
+          <th>Tirumulgherry
+Address
+Plot No. 41,
+Chandragiri Colony,
+Secunderabad,
+Hyderabad - 500003
+Telangana.
+
+Telephone: 7799813131</th>
+          
+        </tr>
+        
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="INTERNATE SERVICE PROVIDER " class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th>Airtel Retail Store</th>
+          <th>tel:40 42203183</th>
+          <th>Opposite Karur Vysya Bank
+Address
+D-No 2-83,
+Gangaram Village,
+Chanda Nagar,
+Hyderabad - 500050
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Tata Tele Services</th>
+          <th>tel:7416227525</th>
+          <th>Opposite Mytrivanam
+Address
+Shop No. 48,
+Nilgiri Block, Aditya Enclave,
+Ameerpet,
+Hyderabad - 500016
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Airtel Express</th>
+          <th>tel:40 40260961</th>
+          <th>Beside Google Office
+Address
+Madhapur Road,
+Gachibowli,
+Hyderabad - 500032
+Telangana.</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+           
+         <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+        
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+        
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+        
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Spa & Saloon" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         <tr>
+          <th>Pundalik Spa</th>
+          <th>tel:8096815793</th>
+          <th>Road No:1,
+Banjara Hills,
+Hyderabad - 500034
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>The Cut Above Unisex Hair And Beauty Spa</th>
+          <th>tel:9391773458</th>
+          <th>Beside DVM College
+Address
+Door-No. 11/14/327,
+Siri Nagar Colony,
+L B Nagar,
+Hyderabad - 500074
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>
+Serena Spa</th>
+          <th>tel:40 6733 1133</th>
+          <th>Near Green Valley
+Address
+D No. 8-2-409,
+Radisson Blu Plaza Hotel, Road Number 6,
+Banjara Hills,
+Hyderabad - 500034
+Telangana.</th>
+          
+        </tr>
+        
+           
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Box Office Nearby" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         <tr>
+          <th>Asian Cinemas - Asian CineSquare Multiplex Uppal</th>
+          <th>tel:04039895050</th>
+          <th>Survey No.99, Shanti Nagar, Srinivasa Colony, Hyderabad, Telangana 500059 </th>
+          
+        </tr>
+        
+        <tr>
+          <th>Sudarshan 35MM</th>
+          <th>tel:04027633993</th>
+          <th>1-1-102/116, Rtc Cross Road, X Road, Chikkadpally, Hyderabad, Telangana 500020 ·</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Cinemax, banjara hills</th>
+          <th>tel:04044565555</th>
+          <th>Banjara Hills, Opp L.v Prasad Eye Institute, Near Kbr Park, Hyderabad, Telangana 500033 ·</th>
+          
+        </tr>
+        
+           
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Café" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th>Ambitto Coffee Shop</th>
+          <th>tel:9985764058</th>
+          <th>Opposite Katriya Hotel
+Address
+6-3-1090/1/2/A,
+Rajbhavan Road,
+Somajiguda,
+Hyderabad - 500082
+Telangana</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Cafe Grafitti</th>
+          <th>tel:9700146212</th>
+          <th>8-2-672/1/A,
+Road No 13,
+Banjara Hills,
+Hyderabad - 500034
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>The Chocolate Room</th>
+          <th>tel:7032737394</th>
+          <th>Beside Heritage Fresh Supermarket
+Address
+Shop No. G1,
+Lake View Hitech,
+Kondapur,
+Hyderabad - 500081
+Telangana.</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Dental Clinic" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th>Smitha Dental Clinic</th>
+          <th>tel:9848204460</th>
+          <th>Opp. Mytri Hospital
+Address
+Shop No. 1-143/1/B,
+Near Bajrang Traders,
+Chanda Nagar,
+Hyderabad - 500050
+Telangana.
+40 23032668</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Pearly Whites</th>
+          <th>tel:9550288419</th>
+          <th>Near Kanaka Durga Temple
+Address
+Plot No:4, Telecom Nagar,
+Sri Shyam Nagar,
+Gachibowli,
+Hyderabad - 500032
+Telangana</th>
+          
+        </tr>
+        
+        <tr>
+          <th>JCN Dental Specialties</th>
+          <th>tel:9293056093</th>
+          <th>Opposite Community Hall
+Address
+H. No. 8-4-284/OU/293,
+OU Colony, Manikonda Road,
+Shaikpet,
+Hyderabad - 500008
+Telangana.
+
+Telephone: 9533273245
+40 65124009</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Electrician Number" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         <tr>
+          <th>Bhavani Electricals</th>
+          <th>tel:9440444721</th>
+          <th>D. No. 14-220, New Mirjalguda,
+Malkajgiri,
+Hyderabad - 500047
+Telangana.
+40 27055098
+</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Beekay Electricals</th>
+          <th>tel:9848507027</th>
+          <th>Opp. SBH Bank
+Address
+Shop No. 6-3-131/14,
+Bala Nagar,
+Hyderabad - 500037
+Telangana.
+40 40029053</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Sri Sai Krupa Traders</th>
+          <th>tel:9849623546</th>
+          <th>D. No. 1-4-972/7,
+Bakaram,
+Musheerabad,
+Hyderabad - 500020
+Telangana.
+
+Telephone: 9700704077
+40 27665888</th>
+          
+        </tr>
+        
+           
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Footwear Shop" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         <tr>
+          <th>
+Khadims Footwear</th>
+          <th>tel:40 24051585</th>
+          <th>Opp. Megha Theatre
+Address
+Door-No. 4-106, Sivani Lodge Building,
+Durganagar,
+Dilsukh Nagar,
+Hyderabad - 500060
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Metco Foot Wear</th>
+          <th>tel:9966499733</th>
+          <th>Shop No. 7-7-66/1,
+Ravindra Nagar,
+Nacharam,
+Hyderabad - 500076
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Aeroclub Woodland Shoes & Apparels</th>
+          <th>tel:40 66037224</th>
+          <th>Shop No. 3 & 4, 1st Floor,
+Manjeera Mall, JNTU Road,
+Kukatpally,
+Hyderabad - 500072
+Telangana.</th>
+          
+        </tr>
+        
+           
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+
+         <H1 id="Furniture Shop Nearby" class="servicex" >  hyderabad</H1>
+    
+   <table>
+       <colgroup><col span="1">
+         <col span="1">
+         <col span="1">
+         <col span="1" style="visibility: collapse;" ></colgroup>
+   
+   
+          <tr>
+           <th>Name</th>
+           <th>Contact-info</th>
+           <th>Address</th>
+           
+         </tr>
+         
+         <tr>
+          <th>
+Jagsco Enterprises</th>
+          <th>tel:40 64641445</th>
+          <th>Opp. Hyundai Showroom
+Address
+D. No. 6-2-39/A,
+Masab Tank,
+Hyderabad - 500028
+Telangana.</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Famous Furniture Works</th>
+          <th>tel:9989712521</th>
+          <th>Near Chacha Nehru Park
+Address
+Shop No. 10-5-2/1/8/2/A,
+Masab Tank,
+Hyderabad - 500028
+Telangana.
+
+Telephone: 9014174771</th>
+          
+        </tr>
+        
+        <tr>
+          <th>Meridian Furnitures & Surgicals</th>
+          <th>tel:40 64505298</th>
+          <th>D No. 5-4-435/5 & 6,
+Nampally station Road,
+Abids,
+Hyderabad - 500001
+Telangana.
+40 66468470</th>
+          
+        </tr>
+        
+
+        <tr>
+          <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+        </tr>
+         </table>
+         <BR>
+          <BR>
+            <BR>
+              <BR>
+                <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+         
+
+         
+                        
+         <H1 id="Hill Station" class="servicex" >  hyderabad</H1>
+
+         <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                
+                <tr>
+                   <th>Ananthagiri Hills</th>
+                   <th></th>
+                   <th>75.3 km from Hyderabad
+                     Vikarabad, Telangana
+                   </th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th> Srisailam</th>
+                   <th></th>
+                   <th>215 km from Hyderabad
+                     Kurnool, Andhra Pradesh
+                   </th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Nallamala Hills</th>
+                   <th></th>
+                   <th>233 km from Hyderabad
+                     Stretches over Andhra Pradesh and Telangana
+                   </th>
+                   
+                 </tr>
+                 
+       
+                
+                  
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+       
+       
+                <H1 id="Ice Cream Center" class="servicex" >  hyderabad</H1>
+           
+          <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                
+                   
+                <tr>
+                   <th>The Chocolate Room</th>
+                   <th>+91 7032737394</th>
+                   <th>Beside Heritage Fresh Supermarket
+                     Address
+                     Shop No. G1,
+                     Lake View Hitech,
+                     Kondapur,
+                     Hyderabad - 500081
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Aroma Bakery</th>
+                   <th>+91 9849838211</th>
+                   <th>H. No. 37-118/13/6, State Bank of India Building,
+                     Sanjeevaiah Nagar Colony, R.K. Puram,
+                     Sainikpuri,
+                     Hyderabad - 500094
+                     Telangana.
+                     40 27114760</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     Ice Stations</th>
+                   <th>+91 9346239356</th>
+                   <th>Ground Floor, VC Plaza,
+                     Vivek Nagar,
+                     Kukatpally,
+                     Hyderabad - 500072
+                     Telangana.</th>
+                   
+                 </tr>
+       
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+                <H1 id="Jewelry Shop" class="servicex" >  hyderabad</H1>
+           
+          <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                
+                   
+                <tr>
+                   <th>Maruti Pearls</th>
+                   <th>+91 40 24578506</th>
+                   <th>Near Patthergatti Mosque
+                     Address
+                     D. No. 22-6-187, Pathargatti,
+                     Charminar,
+                     Hyderabad - 500002
+                     Telangana.
+                     40 24502765</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     Sri OmPrakash jewellers</th>
+                   <th>+91 40 24576610</th>
+                   <th>22-6-58,
+                     kali kaman road ,
+                     Ghansi Bazar,
+                     Hyderabad - 500002
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Manjunath Jewellers</th>
+                   <th>+91 9247893394</th>
+                   <th>Opposite SBH Bank
+                     Address
+                     Flat No. 1, Block- E,
+                     Mayur Kushal Complex, Gunfoundry,
+                     Abids,
+                     Hyderabad - 500001
+                     Telangana.
+                     40 66635430
+                     40 24385540</th>
+                   
+                 </tr>
+       
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+                <H1 id="Mall" class="servicex" >  hyderabad</H1>
+           
+          <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                 
+                <tr>
+                   <th>
+                     Mallikarjuna Wire Netting Company</th>
+                   <th>+91 9948290996</th>
+                   <th>Beside HDFC Bank ATM
+                     Address
+                     Shop No. 4-2-228,
+                     Mahankali Street,
+                     Ranigunj,
+                     Hyderabad - 500003
+                     Telangana.
+                     
+                     Telephone: 8988919026
+                     40 27719026</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     IT Mall Computer Store</th>
+                   <th>+91 9700000490</th>
+                   <th>Shop No. 6-2-983,
+                     Diamond Towers,
+                     Khairatabad,
+                     Hyderabad - 500004
+                     Telangana.
+                     
+                     Telephone: 40 66635554</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     Oasis Center Shopping Mall</th>
+                   <th>+91 40 40044293</th>
+                   <th>W-No. 83, Max Complex,
+                     Greenlands Road,
+                     Punjagutta,
+                     Hyderabad - 500082
+                     Telangana.</th>
+                   
+                 </tr>
+                  
+       
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+                <H1 id="Medical Shop Nearby" class="servicex" >  hyderabad</H1>
+           
+          <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                
+                   
+                <tr>
+                   <th>
+                     Sonee Medical Shop</th>
+                   <th>+91 9700160870</th>
+                   <th>Opp. Asian Paints
+                     Address
+                     Osman Plaza,
+                     Humayun Nagar,
+                     Mehdipatnam,
+                     Hyderabad - 500028
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     Ayuh Sree Herbals & Ayurvedic Medical Shop</th>
+                   <th>+91 9052131013</th>
+                   <th>Opp. Deena Band
+                     Address
+                     Plot No. 1 & 2,
+                     Vivekananda Nagar Road,
+                     Kukatpally,
+                     Hyderabad - 500072
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     Ayush Generic Medical Shop</th>
+                   <th>+91 40 65912888</th>
+                   <th>O.U Colony,
+                     Lanco Hills Lane Road,
+                     Manikonda,
+                     Hyderabad - 500089
+                     Telangana.</th>
+                   
+                 </tr>
+       
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+                
+                <H1 id="Mobile Shop Nearby" class="servicex" >  hyderabad</H1>
+           
+                <table>
+                    <colgroup><col span="1">
+                      <col span="1">
+                      <col span="1">
+                      <col span="1" style="visibility: collapse;" ></colgroup>
+                
+                
+                       <tr>
+                        <th>Name</th>
+                        <th>Contact-info</th>
+                        <th>Address</th>
+                        
+                      </tr>
+                       
+                <tr>
+                   <th>
+                     SIM Mobile Shopee</th>
+                   <th>+91 9640577712</th>
+                   <th>Shop No 22,
+                     Manjeera Majastic Commercial, JNTU Road,
+                     Kukatpally,
+                     Hyderabad - 500072
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     New Style Mobile Shopee</th>
+                   <th>+91 9985801744</th>
+                   <th>Near Paradise Circle
+                     Address
+                     Shop No 51,
+                     Hong Kong Bazaar, Tirumala Complex,
+                     Secunderabad,
+                     Hyderabad - 500003
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>LG Mobile Shoppe</th>
+                   <th>+91 40 30534130</th>
+                   <th>Shop No 313, 3rd Floor,
+                     Forum Sujana Mall,
+                     Kukatpally,
+                     Hyderabad - 500072
+                     Telangana.
+                     40 30534129</th>
+                   
+                 </tr>
+                        
+             
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+             
+                      
+                      <H1 id="Normal Clothing Store" class="servicex" >  hyderabad</H1>
+           
+                      <table>
+                          <colgroup><col span="1">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1" style="visibility: collapse;" ></colgroup>
+                      
+                      
+                             <tr>
+                              <th>Name</th>
+                              <th>Contact-info</th>
+                              <th>Address</th>
+                              
+                            </tr>
+                             
+                <tr>
+                   <th>
+                     4 Me Clothing Store</th>
+                   <th>+91 9553474842</th>
+                   <th>Opp. Kundan Stones
+                     Address
+                     D. No. 3-6-148/A,
+                     Satya Diagnostics,
+                     Himayat Nagar,
+                     Hyderabad - 500029
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     Lee Clothing Store</th>
+                   <th>+91 9059115637</th>
+                   <th>Shop No. 4 & 5,
+                     Ravi Co-Operative Society, Tirumalgiri X Road,
+                     Tirumalgiri,
+                     Hyderabad - 500015
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Louis Philippe Clothing Store</th>
+                   <th>+91 40 67467824</th>
+                   <th>Shop No. 20 & 21, GVK One Mall,
+                     Road No. 1,
+                     Banjara Hills,
+                     Hyderabad - 500034
+                     Telangana.</th>
+                   
+                 </tr>
+                              
+                   
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+                   
+                            
+                            <H1 id="Police Station Nearby" class="servicex" >  hyderabad</H1>
+           
+                            <table>
+                                <colgroup><col span="1">
+                                  <col span="1">
+                                  <col span="1">
+                                  <col span="1" style="visibility: collapse;" ></colgroup>
+                            
+                            
+                                   <tr>
+                                    <th>Name</th>
+                                    <th>Contact-info</th>
+                                    <th>Address</th>
+                                    
+                                  </tr>
+                                  
+                                    
+                <tr>
+                   <th>ABIDS Police Station</th>
+                   <th> Nizam College, Grammer School, Abids, X Road</th>
+                   <th>9490616303</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Begumpet Police Station</th>
+                   <th>At Begumpet Police Lines, On the Sardar Patel Main Road, Opp Splendid Towers, Begumpet, Secunderabad.</th>
+                   <th>9490616419</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Gandhinagar Police Station</th>
+                   <th>From Gandhi Hospital (New) Road, New Boiguda Bus Stop, Central View Apartments Road to Gandhi Nagar P.S.</th>
+                   <th>9490616335</th>
+                   
+                 </tr> 
+                         
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+                         
+                                  
+                                  <H1 id="School Nearby" class="servicex" >  hyderabad</H1>
+           
+                                  <table>
+                                      <colgroup><col span="1">
+                                        <col span="1">
+                                        <col span="1">
+                                        <col span="1" style="visibility: collapse;" ></colgroup>
+                                  
+                                  
+                                         <tr>
+                                          <th>Name</th>
+                                          <th>Contact-info</th>
+                                          <th>Address</th>
+                                          
+                                        </tr>
+       
+                                        <tr>
+                   <th>Sancta Maria International School</th>
+                   <th> 040 2301 1222</th>
+                   <th>Survey No. 106, 107, Dubey Colony Rd, Serilingampalle (M), Telangana 500019</th>
+                   
+                 </tr>
+       
+                 <tr>
+                   <th>Delhi Public School</th>
+                   <th>040 2980 6765</th>
+                   <th>Khajaguda Village Survey No 74, Khajaguda, Village, Hyderabad, Telangana 500104</th>
+                   
+                 </tr>
+       
+                 <tr>
+                   <th>International School of Hyderabad</th>
+                   <th>084556 83865</th>
+                   <th>ICRISAT Main Entrance Gate, Patancheru, Ramachandrapuram, Telangana 502324</th>
+                   
+                 </tr>
+                                        
+                                          
+                               
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+                               
+                                        <H1 id="DOSA" class="servicex" >  hyderabad</H1>
+           
+                                  <table>
+                                      <colgroup><col span="1">
+                                        <col span="1">
+                                        <col span="1">
+                                        <col span="1" style="visibility: collapse;" ></colgroup>
+                                  
+                                  
+                                         <tr>
+                                          <th>Name</th>
+                                          <th>Contact-info</th>
+                                          <th>Address</th>
+                                          
+                                        </tr>
+                                        
+                                           
+                <tr>
+                   <th>Dosa Station</th>
+                   <th></th>
+                   <th>Plat No.14/P, inside Hotel sai Brundavanam, Rail Vihar, Hyderabad, Serilingampalle (M), Telangana 500019</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Kadapa Dosa House</th>
+                   <th>090000 07505</th>
+                   <th> Shop No.2-48/P/21, Prof CR Road, Sri Shyam Nagar, Telecom Nagar, Gachibowli, Hyderabad, Telangana 500032</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Dosa Hut</th>
+                   <th>099665 75333</th>
+                   <th>Sai Pruthvi Enclave, Kondapur, Hyderabad, Telangana 500084</th>
+                   
+                 </tr>
+                               
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+                               
+                                        <H1 id=" Fun Park" class="servicex" >  hyderabad</H1>
+           
+                                        <table>
+                                            <colgroup><col span="1">
+                                              <col span="1">
+                                              <col span="1">
+                                              <col span="1" style="visibility: collapse;" ></colgroup>
+                                        
+                                        
+                                               <tr>
+                                                <th>Name</th>
+                                                <th>Contact-info</th>
+                                                <th>Address</th>
+                                                
+                                              </tr>
+       
+       
+                                               
+                <tr>
+                   <th>Chacha Nehru Amusement And Theme Park</th>
+                   <th>+91 40 23395295</th>
+                   <th>Near Kalpana Automobiles
+                     Address
+                     H No. 5-9-29/7,
+                     Main Road,
+                     Masab Tank,
+                     Hyderabad - 500028
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>WONDERFUN PARK AND PARTY ZONE
+                     </th>
+                   <th></th>
+                   <th>Necklace Road,railway station, 1233, PV Narasimha Rao Marg, Opposite to Sanjeeviah Park, Begumpet, Hyderabad, Telangana 500003</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>NTR Gardens</th>
+                   <th>+91 40 23450359</th>
+                   <th>NTR Marg ,
+                     Central Secretariat,
+                     Khairatabad,
+                     Hyderabad - 500004
+                     Telangana.</th>
+                   
+                 </tr>
+                                                
+                                     
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+                                              <H1 id="Water Park" class="servicex" >  hyderabad</H1>
+           
+          <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                 
+                <tr>
+                   <th>Jalavihar</th>
+                   <th>+91 40 20013015</th>
+                   <th>No. 22/9,
+                     Hussain Sagar,
+                     Necklace Road,
+                     Hyderabad - 500004
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Escape Water Park</th>
+                   <th>Siddulagutta Rd, beside Fort Grand, Shamshabad, Hyderabad, Telangana 501218</th>
+                   <th>073373 33428</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Sri Balaji Water Plant</th>
+                   <th></th>
+                   <th>G9HP+QXJ, Vasanth Nagar Colony, Sri Sai Nagar, Hyderabad, Telangana 500090</th>
+                   
+                 </tr>
+                  
+       
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+       
+                <H1 id="Gym Nearby " class="servicex" >  hyderabad</H1>
+           
+          <table>
+              <colgroup><col span="1">
+                <col span="1">
+                <col span="1">
+                <col span="1" style="visibility: collapse;" ></colgroup>
+          
+          
+                 <tr>
+                  <th>Name</th>
+                  <th>Contact-info</th>
+                  <th>Address</th>
+                  
+                </tr>
+                
+                  
+                <tr>
+                   <th>
+                     Fitness Club & Gym</th>
+                   <th>+91 9849262536</th>
+                   <th>Above Aryabhatta School
+                     Address
+                     Plot No, 4, N R Arcade,
+                     Peerzadiguda Road,
+                     Uppal,
+                     Hyderabad - 500039
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>
+                     The GYM Zone</th>
+                   <th>+91 9703759450</th>
+                   <th>Behind Heritage Mart
+                     Address
+                     Plot No. 42, 43, 44,
+                     Sri Suryas Vijaya Icon, Balaji Nagar, Road No: 1,
+                     Nizampet,
+                     Hyderabad - 500090
+                     Telangana.</th>
+                   
+                 </tr>
+                 
+                 <tr>
+                   <th>Kris Gethin Gyms</th>
+                   <th>+91 8121330777</th>
+                   <th>Opposite Brand Factory
+                     Address
+                     4th Floor, Road No: 2,
+                     Jyothi Magestic,
+                     Banjara Hills,
+                     Hyderabad - 500034
+                     Telangana.</th>
+                   
+                 </tr> 
+       
+                 <tr>
+                  <td colspan="3"> <a href="freehyderbad.php" style="color: #000000 ; text-shadow: 1px 1px 1px rgb(255, 255, 255); font-size: larger;">Click to get area wise filtered suggestions & more exiting insights </a> </td>
+                </tr>
+                 </table>
+                 <BR>
+                  <BR>
+                    <BR>
+                      <BR>
+                        <BR>
+                          <BR>
+                            <BR>
+                              <BR>
+                                 
+                                                            
+
+
+
+
+
+
+
+  </div>
+</li>
+
+
+<script>
+  // Function to scroll to the top of the page
+  function scrollToTop() {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // This provides a smooth scroll animation
+      });
+  }
+
+  // Attach the scrollToTop function to the button click event
+  var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  scrollToTopBtn.addEventListener("click", scrollToTop);
+
+  // Show the button when the user scrolls down 200px
+  window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          scrollToTopBtn.style.display = "block";
+      } else {
+          scrollToTopBtn.style.display = "none";
+      }
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Background Web Page</title>
+  <style>
+   body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(255, 255, 255);
+      color: #000000;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      background-color: #08BD80;
+      padding: 13px;
+      color: white;
+      font-size: 16px;
+    }
+
+    .why-us-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .why-us-box {
+      background-color: #08BD80;
+      color: rgb(0, 0, 0);
+      padding: 20px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      width: 50%;
+      border-radius: 10px;
+      border-top-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      background-color: #08BD80;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000000;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="scrollToTopBtn" class="scroll-to-top" style="position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #05d38e;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none">Scroll to Top</button>
+  <div class="sticky">
+    <nav>
+      <ul>
+      
+        <li><a id="home-link" href="home.php">Home</a></li>
+        <li><a id="about-link" href="about.php">About</a></li>
+      
+        <li><a id="faq-link" href="faq.html">FAQ</a></li>
+        
+        <li><a id="whyus-link" href="whyus.html">Why_us</a></li>
+    
+      </ul>
+    </nav>
+  </div>
+
+  <div class="why-us-container">
+    <h1>why should u become a Migralian?</h1>
+    <div class="why-us-box">
+      <p>Familiarity and Comfort: Migraily understands the emotional attachment and sense of security that comes with being surrounded by familiar faces from our hometown. By linking users with people who migrated to the same destination, it provides a support system reminiscent of their hometown, creating a comforting environment in a new place.</p>
+    </div>
+    <div class="why-us-box">
+      <p>Trust and Reliability: Meeting someone from your hometown in a new place evokes a feeling of trust and ease. Migraily recognizes this and helps users establish connections with fellow migrants from their hometown, making it easier to trust and rely on these individuals for support and guidance.</p>
+    </div>
+    <div class="why-us-box">
+      <p>Enhanced Happiness: Encountering someone from your hometown in a new location brings a sense of joy and happiness. Migraily facilitates these encounters by connecting users with people who share their hometown, adding a layer of happiness to their migration experience.</p>
+    </div>
+    <div class="why-us-box">
+      <p>Reduced Anxiety and Stress: Moving to a new place can be daunting, especially when you don't know anyone there. Migraily alleviates anxiety and stress by connecting users with someone from their hometown, providing a familiar face and a sense of belonging right from the start.</p>
+    </div>
+    <div class="why-us-box">
+        <p>Community Building: Migraily fosters a sense of community among migrants by bringing together individuals who share the common experience of migrating from the same hometown to a specific destination. It encourages users to connect, share experiences, and support one another, creating a strong community of migrants.</p>
+    </div>
+    <div class="why-us-box">
+        <p>Networking Opportunities: Migraily offers users the opportunity to expand their network by connecting with people who have similar backgrounds and migration experiences. This can lead to valuable connections, friendships, and even professional opportunities in their new place of residence.</p>
+    </div>
+    <div class="why-us-box">
+        <p>Practical Support: Apart from emotional support, Migraily also provides practical assistance. Users can seek advice and information from fellow migrants who have already settled in the destination. This exchange of knowledge can help newcomers navigate challenges, find accommodation, employment, and access local resources more easily.</p>
+    </div>
+    <div class="why-us-box">
+        <p>Customized Migration Experience: Migraily recognizes the unique needs and concerns of migrants. By tailoring its services to connect users specifically with individuals from their hometown who migrated to the same destination, it offers a personalized and targeted approach to address their migration-related needs, ensuring a smoother transition and a more fulfilling experience.</p>
+    </div>
+  </div>
+  <script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // This provides a smooth scroll animation
+        });
+    }
+
+    // Attach the scrollToTop function to the button click event
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+
+    // Show the button when the user scrolls down 200px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+</script>
+</body>
+</html>
+

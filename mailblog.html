@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG </title>
+    <link rel="stylesheet" href="css/mainblog.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<body>
+
+  <button id="scrollToTopBtn" class="scroll-to-top" style="position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #05d38e;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none">Scroll to Top</button>
+    <div class="wrapper">
+        
+       <div class="head">
+        
+        <div id="logo" > <img src="project images/Untitled_design__3_-removebg-preview.png"></div>
+           <a href="home.php" class="nav1"> <p class="a8">HOME</p></a>
+           <a href="hyderbad.html"  class="nav1"> <p  class="a8">HYDERBAD</p></a>
+         <a href="proscons.html" class="nav1"><p  class="a8"> BLOG
+         </p></a>    
+           </div>
+    
+           <h1 id="a4"> EXPLORE HYDERBAD</h1> 
+            
+   
+
+            
+
+        <div class="box">
+            
+            <div class="box1" id="food" >  <a href="food.html" target="_blank"><img src="project images/pexels-ella-olsson-1640774.jpg" style="width: 100%;" height="100%" ></a> 
+            
+                <div class="bottom-right">FOOD</div> 
+              </div>
+
+
+           <div class="box1"><a href="travelblog.html" target="_blank"><img src="project images/pexels-kun-fotografi-1239228.jpg" style="width: 100%;" height="100%" ></a> 
+            <div class="bottom-right">TRAVEL</div> 
+        </div>
+
+
+          <div class="box1"><a href="" target="_blank"><img src="project images/pexels-tirachard-kumtanom-733856.jpg" style="width: 100%;" height="100%"  > </a>
+            
+            
+            
+            
+            <div class="bottom-right">LIFESTYLE </div> 
+              </div>
+        </div>
+
+        <h2 id="a3"> <p id="a33">Top Picks</p>  </h2>
+
+        <div class="box3">
+
+            
+
+            <div class="box4">
+<a href="" target="_blank"> <img src="" style="width: 100%;" height="100%" ></a>
+              
+            
+                <div class="bottom"></div> 
+              
+            </div>
+            <div class="box4">
+              <a href="" target="_blank"> <img src="" style="width: 100%;" height="100%" ></a>
+                            
+                          
+                              <div class="bottom"></div> 
+                            
+                          </div>
+
+                          <div class="box4">
+                            <a href="" target="_blank"> <img src="" style="width: 100%;" height="100%" ></a>
+                                          
+                                        
+                                            <div class="bottom"></div> 
+                                          
+                                        </div>
+
+                                        <div class="box4">
+                                          <a href="" target="_blank"> <img src="" style="width: 100%;" height="100%" ></a>
+                                                        
+                                                      
+                                                          <div class="bottom"></div> 
+                                                        
+                                                      </div>
+
+                                                      <div class="box4">
+                                                        <a href="" target="_blank"> <img src="" style="width: 100%;" height="100%" ></a>
+                                                                      
+                                                                    
+                                                                        <div class="bottom"></div> 
+                                                                      
+                                                                    </div>
+
+                                                                    <div class="box4">
+                                                                      <a href="" target="_blank"> <img src="" style="width: 100%;" height="100%" ></a>
+                                                                                    
+                                                                                  
+                                                                                      <div class="bottom"></div> 
+                                                                                    
+                                                                                  </div>
+            
+          </div>
+        
+          <form method="POST" action="allblog.html">  
+            <input type="submit" class="button"  value=" Read more">   
+          </form>   
+            
+
+    </div>
+    <script>
+      // Function to scroll to the top of the page
+      function scrollToTop() {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth' // This provides a smooth scroll animation
+          });
+      }
+  
+      // Attach the scrollToTop function to the button click event
+      var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      scrollToTopBtn.addEventListener("click", scrollToTop);
+  
+      // Show the button when the user scrolls down 200px
+      window.onscroll = function() {
+          if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+              scrollToTopBtn.style.display = "block";
+          } else {
+              scrollToTopBtn.style.display = "none";
+          }
+      };
+  </script>
+</body>
+</html>
